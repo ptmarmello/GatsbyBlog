@@ -1,0 +1,28 @@
+{
+  "name": "codeblog",
+  "version": "1.0.0",
+  "description": "My Codeblog made with Gatsby",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pedro Thiago",
+  "license": "ISC",
+  "dependencies": {
+    "gatsby": "^2.24.47",
+    "gatsby-plugin-catch-links": "^2.3.11",
+    "gatsby-plugin-feed": "^2.5.11",
+    "gatsby-plugin-google-analytics": "^2.3.13",
+    "gatsby-plugin-manifest": "^2.4.23",
+    "gatsby-plugin-offline": "^3.2.23",
+    "gatsby-plugin-react-helmet": "^3.3.10",
+    "gatsby-plugin-sitemap": "^2.4.11",
+    "gatsby-source-filesystem": "^2.3.24",
+    "gatsby-transformer-remark": "^2.8.28",
+    "lodash": "^4.17.20",
+    "minireset.css": "0.0.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0"
+  }
+}
