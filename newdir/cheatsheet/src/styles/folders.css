@@ -1,0 +1,13 @@
+.folder-contentGrid{
+    height: auto;
+    max-height: max-content;
+    width: fit-content;
+    max-width: 90%;
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}

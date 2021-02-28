@@ -1,0 +1,125 @@
+{
+    "majors":[
+        {
+            "title":"Engenharia",
+            "description":"Ainda vou ter que ter a paciência de escrever description pra tudo",
+            "content":[
+                {
+                    "title":"Física 1",
+                    "content":[
+                        {  
+                            
+                        }
+                    ]
+                },
+                {
+                    "title":"Cálculo",
+                    "content":[
+                        {
+
+                        }
+                    ]
+                }
+            ],
+            "types":[
+                {
+                    "title":"Engenharia Elétrica",
+                    "description": "Ainda vou ter que ter a paciência de escrever description pra tudo"    
+                }
+            ]
+        
+        },
+        {
+            "title": "Design",
+            "content":[
+                {
+                    "title":"mat1",
+                    "content":[
+                        {
+
+                        }
+                    ]
+                },
+                {
+                    "title":"mat2",
+                    "content":[
+                        {
+
+                        }
+                    ]
+                }
+            ],
+            "types":[
+                
+            ]
+        
+            
+        }
+    ],
+    "minors":[
+        {
+            "title": "CyberSegurança",
+            "content":[
+                {
+                    "title":"Terminal",
+                    "content":[
+                        {
+
+                        }
+                    ]
+                },
+                {
+                    "title":"Kali",
+                    "content":[
+                        {
+
+                        }
+                    ]
+                }
+            ],
+            "types":[
+                {
+                    
+                }
+            ]
+
+        },
+        {
+            "title":"Frontend",
+            "content":[
+                {
+
+                }
+            ]
+        }
+    ],
+    "subjects":[
+        {
+            "title": "Electromag",
+            "content":[
+                {
+                    "title":"Eletrica",
+                    "content":[
+                        {
+
+                        }
+                    ]
+                },
+                {
+                    "title":"Magnetismo",
+                    "content":[
+                        {
+
+                        }
+                    ]
+                }
+            ],
+            "types":[
+                {
+                    
+                }
+            ]
+
+        }
+    ]
+}

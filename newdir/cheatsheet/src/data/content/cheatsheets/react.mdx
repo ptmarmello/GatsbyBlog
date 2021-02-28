@@ -1,0 +1,144 @@
+---
+type: 'cheatsheet'
+slug: 'React'
+title: "React.js"
+category: 'dev'
+date: "2021-02-12"
+ads: true
+description: "Uma biblioteca JavaScript para criar interfaces de usuário"
+majors:
+    - Computer Science
+    - Computer Engineering
+tags:
+    - dev
+    - frontend
+    - javascript
+    - programming
+    - tech
+    - languages
+---
+import Markdown from 'markdown-to-jsx';
+
+## Sobre
+>> React é uma biblioteca JavaScript para criar interfaces de usuário.
+>> Transformando cada vez mais em uma tarefa fácil.
+
+## Init
+
+```bash
+npx create-react-app my-app
+cd my-app
+npm start
+```
+
+## Criando uma nova Página
+
+```js
+import React from 'react';
+export default function PageName (){
+    return(
+        <div>
+            content
+        </div>
+    );
+}
+```
+
+```js
+function PageName({props}){
+    return(
+        <div>
+            content
+        </div>
+    );
+}
+
+export default PageName;
+```
+
+## Componentes
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+class Hello extends React.Component {
+  render () {
+    return (
+        <div className='message-box'>
+        Hello {this.props.name}
+        </div>
+    )
+  }
+}
+const el = document.body
+ReactDOM.render(<Hello name='John' />, el)
+```
+
+## States
+```js
+constructor(props) {
+  super(props)
+  this.state = { username: undefined }
+}
+this.setState({ username: 'rstacruz' })
+render () {
+  this.state.username
+  const { username } = this.state
+  ···
+}
+```
+
+```js
+class Hello extends Component {
+  state = { username: undefined };
+  ...
+}
+```
+
+```js
+import React, { useState } from 'react';
+
+export default function HelloWorld(){
+    const [state, setstate] = useState(initialState);
+    return(
+        <>
+            <h1>I'm a Scatchman</h1>
+            {setstate = {`NewState`}}
+        </>
+    );
+}
+```
+
+## Funções e Hooks
+### Effect hook
+```js
+import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // Atualiza o título do documento
+    document.title = `Você clicou um total de ${count} vezes`;
+  }, [count]);
+
+  return (
+    <div>
+      <p>Você clicou um total de {count} vezes.</p>
+      <button onClick={() => setCount(count + 1)}>
+        Clica!
+      </button>
+    </div>
+  );
+}
+```
+
+## Styled Components
+
+
+
+## Veja também:
+- Next.JS
+- Gatsby.JS
+- Electron.JS

@@ -1,0 +1,55 @@
+{
+    "basic":[
+        {
+            "measures":[
+                {
+                    "text":[
+                        {
+                            "mainHeader":{
+                                "fontWeight": 500,
+                                "lineHeight": 10,
+                            },
+                            "navMenu":{
+
+                            },
+                            "blog":{
+
+                            },
+                            "foldersPage":{
+
+                            }
+
+                        }
+                    ],
+                    "size":[
+                        {   
+                            "button":{
+
+                            }
+                        }
+                    ]
+                }
+            ],
+            "images":[
+                {
+
+                }
+            ],
+            "colors":{
+                "primary": "#e32",
+                "secondary": "#e32",
+                "primaryShadow": "#e32",
+                "secondaryShadow": "#e32",
+                "textColor": "#e32",
+                "mainBG": "#e32"
+            }
+            
+        }
+    ],
+    "dark":[
+        {
+
+        }
+    ]
+
+}

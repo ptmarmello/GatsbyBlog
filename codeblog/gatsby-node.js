@@ -114,6 +114,20 @@ exports.createPages = ({ graphql, actions }) => {
           posts.forEach(({ node }, index) => {
             const { slug, source } = node.fields;
             createPage({
+              path: `/blog${slug}`,
+              component: postTemplate,
+              context: {
+                slug,
+                source
+              }
+            });
+          });
+
+          /* Cria a página de chposts */
+          const chposts = items.filter(item => item.node.fields.source === "cheatsheets");
+          chposts.forEach(({ node }, index) => {
+            const { slug, source } = node.fields;
+            createPage({
               path: slug,
               component: postTemplate,
               context: {
@@ -122,6 +136,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             });
           });
+
         })
       );
     });
