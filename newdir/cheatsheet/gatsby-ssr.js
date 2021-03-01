@@ -7,15 +7,15 @@
 // You can delete this file if you're not using it
 
 import React from 'react';
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+// import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { MDXProvider } from "@mdx-js/react";
 import { preToCodeBlock } from "mdx-utils";
 import "./src/styles/language-tabs.css";
 import Code from './src/components/code';
 
-const GlobalStyles = createGlobalStyle`
+// const GlobalStyles = createGlobalStyle`
 
-`;
+// `;
 
 const components = {
     pre: preProps => {
@@ -32,9 +32,9 @@ const components = {
 
 export const wrapRootElement = ({ element }) => (
     <MDXProvider components={components} >
-        <ThemeProvider theme={Theme}>
-            <GlobalStyles />
+        {/* <ThemeProvider >
+            <GlobalStyles /> */}
             {element}
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
     </MDXProvider>
 )

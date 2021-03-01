@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import Helmet from 'react-helmet';
 
 export default function PostTemplate({ data }) {
   const usingData = data.mdx;

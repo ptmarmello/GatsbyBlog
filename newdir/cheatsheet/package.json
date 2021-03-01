@@ -1,7 +1,7 @@
 {
   "name": "my-cheatsheet-blog",
   "private": true,
-  "description": "Cheatsheet from anything I may try",
+  "description": "Cheatsheets of everything I tried",
   "version": "0.1.0",
   "author": "Pedro Thiago <ptmarmello@gmail.com>",
   "dependencies": {

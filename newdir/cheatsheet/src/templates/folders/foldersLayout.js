@@ -74,8 +74,6 @@ export default function FolderLayout({ pageContext: { pageData } }){
     // const dataSubs = pageData.subjects;
     const dataContent = pageData.content;
     const dataTypes = pageData.types;
-
-    console.log(dataTypes);
     return(
         <Layout pageTitle={pageData.title}>
             <div className="header">
@@ -122,7 +120,6 @@ export default function FolderLayout({ pageContext: { pageData } }){
                                     {content.description}
                                 </p>
                             </Paper>
-                            
                         );
                     }) }
                 </div>
