@@ -97,21 +97,16 @@ export default function FoldersGrid(props) {
           }
 
           {props.type === 'Subjects' &&
-              db.subjects.map((subjects, subjectsIndex) => {
+              db.subjects.map( (subjects, subjectsIndex) => {
                   const subjectsId = `subjects__${subjectsIndex}`;
                   return (
-                    <Folders
-                      as={Link}
-                      to={`/subjects/${subjects.title}`}
-                      htmlFor={subjectsId}
-                      subject
-                    >
+                    <Folders as={Link} to={`/subjects/${subjects.title}`} key={subjectsId} subject >
                       {subjects.title}
                     </Folders>
                   );
-              })
+              }
+            )
           }
-
       </div>
   );
 }
