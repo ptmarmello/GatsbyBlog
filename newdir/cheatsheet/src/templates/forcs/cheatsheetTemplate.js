@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 // import { Link } from 'gatsby';
 // import Layout from '../layouts/layout';
 // import Divider from '../../components/divider';
-import { MDXProvider } from "@mdx-js/react";
+// import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import '../../styles/cheatsheet.css';
 import Navbar from '../../components/navbar';
@@ -28,9 +28,8 @@ import Navbar from '../../components/navbar';
 
 export default function CheatSheetTemplate({data}) {
     const usingData = data.mdx;
-    const {title, tags} = usingData.frontmatter;
+    const {title} = usingData.frontmatter;
     const htmlData = usingData.body;
-    // console.log(htmlData);
 
     return(
       <div className="App">
@@ -58,9 +57,8 @@ export default function CheatSheetTemplate({data}) {
         </div>
       
       <div className="ch-content">
-        <MDXProvider >
-          <MDXRenderer>{htmlData}</MDXRenderer>
-        </MDXProvider>
+          <MDXRenderer key={0} children={htmlData}>
+          </MDXRenderer>
       </div>
         
       </div>

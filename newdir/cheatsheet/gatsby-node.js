@@ -132,7 +132,6 @@ exports.createPages = async ({ graphql, actions }) => {
                         title
                         type
                       }
-                      html
                       timeToRead
                       mdxAST
                       wordCount {

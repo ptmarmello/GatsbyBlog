@@ -3,16 +3,17 @@ import React, {useState} from "react";
 import Layout from "../templates/layouts/layout";
 import {graphql, Link} from 'gatsby';
 
-import Header from '../components/header';
+// import Header from '../components/header';
 // import Searchbar from '../components/searchbar';
 import Divider from "../components/divider";
-import '../styles/global.css';
-import '../styles/home.css';
-import '../styles/searchbar.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
+import '../styles/global.css';
+import '../styles/home.css';
+import '../styles/header.css';
+import '../styles/searchbar.css';
 // import HomeSlides from "../components/HomeSlides";
 
 const HeaderHeader = styled.h1`
@@ -97,6 +98,15 @@ const ListLink = styled(Link)`
   }
 `;
 
+const NavButton = styled(Link)`
+    margin: 0 auto;
+    margin-right: 8px;
+    margin-left: 8px;
+    outline: none;
+`;
+
+
+
 function Searchbar() {
   const [search, setSearch] = useState(String);
   return(
@@ -119,6 +129,23 @@ function Searchbar() {
   );
 }
 
+function Header(props) {
+ return(
+  <div className="App-Header">
+  <div className="Header-nav">
+      <Link to={`/`} style={{width:'fit-content', margin:'0', float: "left", fontSize:'24px', outline: 'none'}}>Home</Link>
+      <ul style={{listStyle:'none', float: 'right', outline: 'none', margin: '0', padding: '0', display:'flex'}}>            
+          <NavButton to="/blog" > Blog </NavButton>
+          <NavButton to="/sobre" > Sobre </NavButton>
+      </ul>
+  </div>
+  <div className="header-children">            
+          {props.children}
+  </div>
+</div>
+ );
+}
+
 export default function Home({data}) {
   const usingData = data.allMdx.edges;
   const ChList = <section className="home-grid">
@@ -134,6 +161,7 @@ export default function Home({data}) {
       })}
     
   </section>;
+
   return (
     <Layout pageTitle="Home">
       <Helmet title="Home | CheatsheetBlog" defer={false} />
