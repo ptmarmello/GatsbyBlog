@@ -1,16 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 // import { Link } from 'gatsby';
 import Layout from "../templates/layouts/layout";
 import {graphql, Link} from 'gatsby';
-import db from '../data/folders_db.json';
+
 import Header from '../components/header';
-import Searchbar from '../components/searchbar';
+// import Searchbar from '../components/searchbar';
 import Divider from "../components/divider";
 import '../styles/global.css';
 import '../styles/home.css';
-
-import styled, { css } from 'styled-components';
+import '../styles/searchbar.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import styled from 'styled-components';
 import Helmet from 'react-helmet';
+// import HomeSlides from "../components/HomeSlides";
 
 const HeaderHeader = styled.h1`
   font-weight: 500;
@@ -29,109 +32,90 @@ const HeaderHeader = styled.h1`
   }
 
 `
-const Folders = styled.button`
-    display: flex;
-    width: min-content;
-    max-width: 120px;
-    min-width: 90px;
-    height: 24px;
+// const SearchButton = styled.button`
+//     margin: 0 auto;
+//     margin-left: 4px;
+//     min-width: 102px;
+//     height: 42px;
+//     border: 2px solid #ccc;
+//     background-color: transparent;
+//     border-radius: 4px 12px 12px 4px;
+//     outline: none;
     
-    margin: 0 auto;
-    margin-right: .25rem;
-    padding: 10px;
 
-    border-radius: 8px;
+//     transition: width 0.4s ease-in-out;
 
-    outline: none;
-    text-decoration: none;
-    text-align: center;
-    text-transform: capitalize;
+//     /* @media screen and (max-width: 700px){
+//         width: 20px;
+//     } */
 
-    justify-content: center;
-    align-items: center;
-    align-self: center;
+//     &:enabled{
+//         border-color: gray;
+//         cursor: pointer;
+//     }
 
-    ${props => props.major && css`
-        margin-top: 1.75rem;
-        margin-bottom: .25rem;
-        background: transparent;
-        border: 2px solid palevioletred;
-        color: palevioletred;
-        &:hover{
-            background: palevioletred;
-            color: white;
-        }
-    `}
+//     &:active{
+//         border: 3px solid;
+//         border-color: green;
+//         transform: scale(0.98);
+//     }
 
-    ${props => props.minor && css`
-        margin-bottom: .25rem;
-        background: transparent;
-        border: 2px solid paleturquoise;
-        color: paleturquoise;
-        &:hover{
-            background: paleturquoise;
-            color: white;
-        }
-    `}
-    ${props => props.subject && css`
-        margin-bottom: .25rem;
-        background: transparent;
-        border: 2px solid palegreen;
-        color: palegreen;
-        &:hover{
-            background: palegreen;
-            color: white;
-        }
-    `}
+// `;
+
+const ListLink = styled(Link)`
+  padding: 5px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  margin: 0 auto;
+
+  min-width: max-content;
+  max-width: 40%;
+  height: fit-content;
+
+  box-sizing: border-box;
+  border: 2px solid palevioletred;
+  border-radius: 8px;
+  color: palevioletred;
+
+  background: transparent;
+  transition: 0.367s ease-in-out;
+
+  &:hover{
+    transform: scale(1.25);
+    background: palevioletred;
+    color: white;
+  }
+
+  &:active{
+    transform: scale(1.00);
+    background: paleturquoise;
+    border-color: paleturquoise;
+  }
 `;
 
-function FoldersGrid(props) {
+function Searchbar() {
+  const [search, setSearch] = useState(String);
   return(
-    <div className="App-Foldersgrid">
-        {props.type === 'Majors' &&
-            db.majors.map((major, majorIndex) => {
-                const majorId = `major__${majorIndex}`;
-                return (
-                  <Folders
-                    as={Link}
-                    to={`/majors/${major.title}`}
-                    htmlFor={majorId}
-                    major
-                  >
-                    {major.title}
-                  </Folders>
-                );
-            })
-        }
+      <form id="searchbar" onSubmit={function (event) {
+          event.preventDefault();
+          // router.push(`/${search}`);
+        }} >
+          <input type='text' onChange={(event) => {
+              setSearch(event.target.value);
+          }}
+          placeholder="Pesquisar por..."
+          value={search}
+          />
 
-        {props.type === 'Minors' &&
-            db.minors.map((minor, minorIndex) => {
-                const minorId = `minor__${minorIndex}`;
-                return (
-                  <Folders
-                    as={Link}
-                    to={`/minors/${minor.title}`}
-                    htmlFor={minorId}
-                    minor
-                  >
-                    {minor.title}
-                  </Folders>
-                );
-            })
-        }
+          {/* <SearchButton disabled={search.length === 0} type="submit">
+              {`Searching for ${search}`}
+          </SearchButton> */}
 
-        {props.type === 'Subjects' &&
-            db.subjects.map( (subjects, subjectsIndex) => {
-                const subjectsId = `subjects__${subjectsIndex}`;
-                return (
-                  <Folders as={Link} to={`/subjects/${subjects.title}`} key={subjectsId} subject >
-                    {subjects.title}
-                  </Folders>
-                );
-            }
-          )
-        }
-    </div>
+      </form>
   );
 }
 
@@ -142,9 +126,9 @@ export default function Home({data}) {
         console.log(index);
         return (
           <li>
-            <Link key={index} to={`ch${things.node.fields.slug}/`}>
+            <ListLink key={index} to={`ch${things.node.fields.slug}/`}>
               {things.node.frontmatter.title}
-            </Link>
+            </ListLink>
           </li>
         );
       })}
@@ -152,24 +136,24 @@ export default function Home({data}) {
   </section>;
   return (
     <Layout pageTitle="Home">
-      <Helmet title="Cheatsheet | Home" defer={false} />
+      <Helmet title="Home | CheatsheetBlog" defer={false} />
       <div style={{margin:'0 auto', padding:'0'}}>
-          <Header pageTitle="Home">  
+          <Header> 
               <section style={{display:"block", margin:'0 auto', width: '100%', height: '100%', alignContent: 'center', position: 'relative', justifyContent: 'center', textAlign: 'center'}}>
-                  <HeaderHeader>CheatSheet Blog</HeaderHeader>
-                  <div className="header-paragraph">
-                    <h3 style={{marginBottom: 0 , paddingBottom: 0}} >Pensou que não teria CheatSheet de universitário?</h3>
-                    <p style={{marginTop: '4px'}}>Pensou errado. Otário.</p>
-                  </div>
-                  <Searchbar />
+                <div className="Home-main-container">
+                  <div className="Home-container">
+                    <HeaderHeader>CheatSheet Blog</HeaderHeader>
+                    <div className="header-paragraph">
+                      <h3 style={{marginBottom: 0 , paddingBottom: 0}} >Pensou que não teria CheatSheet de universitário?</h3>
+                      <p style={{marginTop: '4px'}}>Pensou errado. Otário.</p>
+                    </div>
+                    <Searchbar />
 
-                  <Divider type="Astro"/>
-
-                  <div style={{display:"block", margin:'0 auto'}}>
-                    <FoldersGrid type="Majors" />               
-                    <FoldersGrid type="Minors" />
-                    <FoldersGrid type="Subjects"/>
+                    <Divider type="Astro"/>
                   </div>
+                </div>
+
+                  {/* <HomeSlides /> */}
               </section>
             {ChList}
           </Header>

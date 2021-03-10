@@ -3,7 +3,7 @@ input[type=text] {
     height: 42px;
     box-sizing: border-box;
     border: 2px solid #ccc;
-    border-radius: 12px 4px 4px 12px;
+    border-radius: 12px 12px 12px 12px;
     font-size: 16px;
     background-color: white;
     /* background-image: url('searchicon.png'); */
