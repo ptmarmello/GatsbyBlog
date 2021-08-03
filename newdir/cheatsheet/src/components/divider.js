@@ -14,8 +14,7 @@ export default function Divider(props) {
 
             {props.type === 'Normal' &&
                 <div class="astrodivider" style={{marginTop: '20px'}}>
-                    <div class="astrodividermask">
-                    </div>
+                    <div class="astrodividermask"></div>
                 </div>
             }
 

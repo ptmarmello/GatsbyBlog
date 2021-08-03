@@ -1,52 +1,94 @@
-.home-grid{
-    display: grid;
-    margin: 0 auto;
-    padding: 0;
-    width: 60%;
-    max-width: 65%;
-    height: max-content;
+a{
+    text-decoration: none;
+}
 
-    margin-top: 15px;
-    
-    grid-template-columns: repeat(4, minmax(25%,80%));
-    justify-content: space-between;
+main{
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.homeContainer{
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+    align-content: center;
     align-items: center;
     text-align: center;
 }
 
-.home-grid li{
-    width: fit-content;
-    margin: 0;
-    margin-bottom: 15px;
-    text-decoration: none;
-    list-style: none;
+.ContainerMain{
+    width: 100%;
+    height: 100%;
+    margin: 15vh auto 0 auto;
 }
 
-a{
-    text-decoration: none;
+.ContainerMain h2{
+    font-weight: 700;
+    font-size: 36px;
+    color: palevioletred;
+    margin: 1vh auto;
 }
-.Home-nav{
-    width: 100%;
-    height: max-content;
-    justify-content: space-between;
+
+.ContainerMain h4{
+    font-weight: 500;
+    font-size: 24px;
+}
+
+
+.homeContent{
+    width: 90%;
+    height: auto;
+    margin: 4vh auto 0px auto;
+    justify-content: center;
     align-items: center;
     align-content: center;
 }
 
-.Home-main-container{
-    width: 100%;
-    height: 90vh;
+.homeContent h1,h2,h3,h4,h5,h6 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
 
+.homeDisplays{
+    width: 100%;
+    height: auto;
+    display: block;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 0 auto 2vh auto;
+}
+
+.homeMainGrid{
     display: flex;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; */
+    grid-gap: 2vw;
+    margin: 0 auto;
+    justify-content: center;
+    align-content: center;
+}
+
+.homeGrid{
+    width: 40%;
+    height: auto;
+    margin: 2vh auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(70px, 140px));
+    grid-gap: 2vw;
+}
+
+.homeGrid div{
+    margin: 0 auto;
+    padding: 0;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    margin: auto auto;
-
-}
-
-.Home-container{
-    width: fit-content;
-    max-width: 100%;
+    align-self: center;
+    width: min-content;
     height: fit-content;
 }
+/* 
+.homeMainContent{
+
+} */

@@ -25,15 +25,17 @@ const NavTitle = styled.h2`
 
 const LinkButton = styled.button`
     width: fit-content;
-    height: min-content;
+    height: fit-content;
+    min-height: 20px;
     outline: none;
     margin: 0 auto;
     padding: 8px;
 
     text-decoration: none;
-    color: black;
+    color: palevioletred;
     border-radius: 8px;
     background: transparent;
+    transition: 0.367s ease-in-out;
 
     &:hover{
         background: palevioletred;
@@ -45,7 +47,7 @@ const LinkButton = styled.button`
 `;
 
 const ListLink = props => (
-    <li style={{display:'inline-block', marginRight:'.5rem'}}>
+    <li style={{display:'inline-block', marginRight:'.5rem', height:'fit-content'}}>
         <LinkButton as={Link} to={props.to} >
             {props.children}
         </LinkButton>
@@ -55,9 +57,11 @@ const ListLink = props => (
 export default function Navbar(props) {
     return(
         <div className="App-Nav">
-            <div style={{margin:'0 auto', width:'90%', display: 'flex', justifyContent: 'space-between'}}>
-                <div className="back" style={{outline:'none', float: 'left', marginRight: '32px'}} >
-                    <FontAwesomeIcon icon={ faArrowLeft }/>
+            <div className="NavContainer">
+                <div>
+                    {props.pageTitle !== "Home" &&
+                        <FontAwesomeIcon icon={ faArrowLeft }/>
+                    }
                 </div>
 
                 {props.pageTitle !== "Home" &&
@@ -66,17 +70,17 @@ export default function Navbar(props) {
                     </NavTitle>
                 }
                 
-                <div>    
-                    <ul style={{listStyle:'none', float:'right', outline: 'none', margin: '0', padding: '0'}}>
+                <div className="NavMenu">    
+                    <ul>
                         {props.pageTitle !== 'Home' && 
                             <div className="sb-search" id="sb-search">
                                 <form style={{marginRight:'12px'}}>
-                                <input type="search" placeholder=""/>
+                                    <input type="search" placeholder=""/>
                                 </form>
-                            </div>                      
+                            </div>
                         }
-                        <ListLink to="/blog" > Blog </ListLink>
-                        <ListLink to="/sobre" > Sobre </ListLink>
+                        <ListLink to="/blog"> Blog </ListLink>
+                        <ListLink to="/sobre"> Sobre </ListLink>
                     </ul>
                 </div>
             </div>

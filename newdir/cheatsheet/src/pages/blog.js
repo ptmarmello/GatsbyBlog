@@ -4,7 +4,6 @@ import { Link } from 'gatsby';
 import Navbar from '../components/navbar';
 import '../styles/blog.css';
 import styled from 'styled-components';
-
 import Helmet from 'react-helmet';
 
 const BlogPost = styled.div`
